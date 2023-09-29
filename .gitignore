@@ -47,3 +47,6 @@ Thumbs.db
 **/.mvn/
 **/.idea/
 **/.vscode/
+
+# Local Netlify folder
+.netlify
