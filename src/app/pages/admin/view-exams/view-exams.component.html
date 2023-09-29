@@ -1,0 +1,27 @@
+<mat-card class="mt10" *ngFor="let e of exams">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>
+      {{e.title}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{e.category.title}}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button [routerLink]="'/admin/view-questions/'+e.examId+'/'+e.title" color="primary">Preguntas</button>
+      <button mat-stroked-button color="primary" class="ml20">Puntos máximos {{e.maxPoints}}</button>
+      <button mat-stroked-button color="primary"  class="ml20">Preguntas {{e.questionNumbers}}</button>
+      <button [routerLink]="'/admin/exam/'+e.examId" mat-flat-button color="primary" class="ml20">Actualizar</button>
+      <button mat-flat-button color="primary" class="ml20">Intentos</button>
+      <button mat-flat-button color="warn" class="ml10" (click)="deleteExam(e.examId)">Eliminar</button>
+
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
+
+<div class="container text-center mt20">
+  <button routerLink="/admin/add-exam" mat-raised-button color="primary">Agregar cuestionario</button>
+
+</div>

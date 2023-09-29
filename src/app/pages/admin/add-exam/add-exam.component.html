@@ -1,0 +1,49 @@
+<mat-card style="margin-top: 10px;">
+  <h1>Agregar nuevo examen</h1>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <form (ngSubmit)="saveExam()">
+        <mat-form-field class="w100" appearance="fill">
+          <mat-label>Título</mat-label>
+          <input [(ngModel)]="examData.title" type="text" name="title" placeholder="Digite el título" matInput required>
+        </mat-form-field>
+        <mat-form-field class="w100" appearance="fill">
+          <mat-label>Descripción</mat-label>
+          <textarea [(ngModel)]="examData.description" type="text" name="description"
+            placeholder="Digite la descripción" matInput rows="8"></textarea>
+        </mat-form-field>
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field class="w100" appearance="fill">
+              <mat-label>Puntos Máximos</mat-label>
+              <input [(ngModel)]="examData.maxPoints" type="text" name="maxPoints"
+                placeholder="Digite la cantidad de puntos" matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field class="w100" appearance="fill">
+              <mat-label>Número de preguntas</mat-label>
+              <input [(ngModel)]="examData.questionNumbers" type="text" name="questionNumbers"
+                placeholder="Digite el número de preguntas" matInput>
+            </mat-form-field>
+          </div>
+        </div>
+        <mat-slide-toggle class="mt20" name="active" [(ngModel)]="examData.active" color="primary">
+          Estado de publicación
+        </mat-slide-toggle>
+        <mat-form-field appearance="fill" class="mt20 w100">
+          <mat-label>Categorías</mat-label>
+          <mat-select [(ngModel)]="examData.category.categoryId" name="category">
+            <mat-option *ngFor="let c of categories" [value]="c.categoryId">
+              {{c.title}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div class="container text-center">
+          <button mat-raised-button color="primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</mat-card>
